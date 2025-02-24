@@ -7,9 +7,9 @@ import { ConfigService } from '@nestjs/config';
 export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
   constructor(configService: ConfigService) {
     super({
-      clientID: '1296177931495483',
-      clientSecret: 'e9633d950b6c3906f755a6475cf394f8',
-      callbackURL: 'http://localhost:3000/auth/facebook/callback',
+      clientID: process.env.FACEBOOK_APP_ID,
+      clientSecret: process.env.FACEBOOK_APP_SECRET,
+      callbackURL: process.env.FACEBOOK_APP_CALLBACK,
       profileFields: ['id', 'emails', 'name'],
     });
   }

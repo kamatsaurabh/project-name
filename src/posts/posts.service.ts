@@ -1,13 +1,11 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import axios from 'axios';
-
 @Injectable()
 export class PostsService {
-  private readonly API_URL = 'https://jsonplaceholder.typicode.com/posts';
+  private readonly API_URL = process.env.JSON_FAKE_DATA;
 
   async getAllPosts() {
     const response = await axios.get(this.API_URL);
-    console.log(response);
     return response.data;
   }
 

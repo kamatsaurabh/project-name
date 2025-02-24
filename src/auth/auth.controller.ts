@@ -17,7 +17,7 @@ export class AuthController {
   @UseGuards(GoogleAuthGuard)
   async googleAuthRedirect(@Req() req, @Res() res) {
     const jwt = await this.authService.validateOAuthLogin(req.user);
-    res.redirect(`http://localhost:4200/login?token=${jwt.token}`);
+    res.redirect(`${process.env.FALLBACK_URL}${jwt.token}`);
   }
 
   // **NEW: Google login via Angular**
@@ -36,7 +36,7 @@ export class AuthController {
   @UseGuards(FacebookAuthGuard)
   async facebookAuthRedirect(@Req() req, @Res() res) {
     const jwt = await this.authService.validateOAuthLogin(req.user);
-    res.redirect(`http://localhost:4200/login?token=${jwt.token}`);
+    res.redirect(`${process.env.FALLBACK_URL}${jwt.token}`);
   }
 
   // **NEW: Facebook login via Angular**

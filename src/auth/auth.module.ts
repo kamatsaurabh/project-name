@@ -10,12 +10,12 @@ import { FacebookStrategy } from './strategies/facebook.strategy';
 @Module({
   imports: [
     ConfigModule,
-    PassportModule.register({ defaultStrategy: 'jwt' }),
+    PassportModule.register({ defaultStrategy: process.env.JWT_SECRET }),
     JwtModule.registerAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
-        secret: 'your-jwt-secret',
+        secret: process.env.JWT_SECRET ,
         signOptions: { expiresIn: '1h' },
       }),
     }),
