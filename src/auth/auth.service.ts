@@ -1,18 +1,3 @@
-// import { Injectable } from '@nestjs/common';
-// import { JwtService } from '@nestjs/jwt';
-
-// @Injectable()
-// export class AuthService {
-//   constructor(private jwtService: JwtService) {}
-
-//   async validateOAuthLogin(userData: any): Promise<{ token: string }> {
-//     const payload = { email: userData.email, sub: userData.id };
-//     const token = this.jwtService.sign(payload);
-//     return { token };
-//   }
-// }
-
-
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { OAuth2Client } from 'google-auth-library';

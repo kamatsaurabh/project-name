@@ -9,9 +9,7 @@ import { FacebookStrategy } from './strategies/facebook.strategy';
 
 @Module({
   imports: [
-    // ConfigModule.forRoot(),
     ConfigModule,
-    // PassportModule,
     PassportModule.register({ defaultStrategy: 'jwt' }),
     JwtModule.registerAsync({
       imports: [ConfigModule],
